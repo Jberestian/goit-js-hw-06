@@ -1,0 +1,33 @@
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
+];
+
+// получение ul
+const galleryListEl = document.querySelector(".gallery");
+console.log(galleryListEl);
+
+// создания ф-ции для отрисовки, и диструктарицация массива обьектов
+const createGalleryCard = ({ alt, url } = {}) => {
+  return `<li class="gallery-item">
+    <img src="${url}" alt="${alt}">
+</li>`;
+};
+
+// Перебор массива map
+const cardsArr = images.map((el) => {
+  return createGalleryCard(el);
+});
+
+// Вставка коллекции карточек на страницу
+galleryListEl.insertAdjacentHTML("afterbegin", cardsArr.join(""));
